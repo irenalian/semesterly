@@ -43,6 +43,7 @@ class StudentSerializer(serializers.ModelSerializer):
     LoginToken = serializers.CharField(source='get_token')
     LoginHash = serializers.CharField(source='get_hash')
     timeAcceptedTos = serializers.DateTimeField(source='time_accepted_tos', format='iso-8601')
+    # favoriteNum = serializers.CharField(source='favorite_num')
 
     class Meta:
         model = Student
@@ -65,4 +66,5 @@ class StudentSerializer(serializers.ModelSerializer):
             'LoginToken',
             'LoginHash',
             'timeAcceptedTos',
+            'favorite_num'
         )

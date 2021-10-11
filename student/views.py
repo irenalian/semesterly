@@ -155,7 +155,8 @@ class UserView(RedirectToSignupMixin, APIView):
             'img_url': img_url,
             'hasGoogle': has_google,
             'hasFacebook': has_facebook,
-            'notifications': has_notifications_enabled
+            'notifications': has_notifications_enabled,
+            'favorite_num': student.favorite_num
         }
         for r in reactions:
             context[r['title']] = r['count']
@@ -177,6 +178,7 @@ class UserView(RedirectToSignupMixin, APIView):
             default_val = getattr(student, setting)
             new_val = request.data.get(setting, default_val)
             setattr(student, setting, new_val)
+        # student.favorite_num = 21
         student.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
 

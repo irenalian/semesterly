@@ -163,6 +163,14 @@ class UserSettingsModal extends React.Component {
     const preferences = !this.props.userInfo.FacebookSignedUp ? null : (
       <div>
         <div className="preference cf">
+          <div className="preference-wrapper">
+            <h3>This is your favorite num:  </h3>
+          </div>
+          
+        </div>
+
+
+        <div className="preference cf">
           <label className="switch switch-slide" htmlFor="social-courses-input">
             <input
               ref={(c) => { this.shareCourses = c; }} id="social-courses-input"
